@@ -1,286 +1,258 @@
-# TaskFlow - Task Management & Comments System
+# 🚀 Mini Project Management System
 
-A modern, impressive, and feature-rich Task Management application built with React, TypeScript, and TailwindCSS. This application provides a beautiful, intuitive interface for managing tasks with drag-and-drop functionality, real-time comments, and a responsive design.
-
-![TaskFlow](https://img.shields.io/badge/React-18.2.0-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-blue) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.3.6-38bdf8)
+A modern, full-stack project management system built with Django, GraphQL, React, and TypeScript. This application provides multi-tenant project and task management with real-time updates, drag-and-drop functionality, and a beautiful, responsive UI.
 
 ## ✨ Features
 
-### Must Have (70%)
-- ✅ **React Components with TypeScript** - Fully typed components with proper interfaces
-- ✅ **Clean Code Structure** - Well-organized, maintainable codebase following best practices
-- ✅ **Task Board/List Views** - Switch between Kanban board and list views
-- ✅ **Add/Edit Tasks** - Create and update tasks with comprehensive forms
-- ✅ **Status Updates** - Update task status (TODO, IN_PROGRESS, DONE)
-- ✅ **Comment System** - Add, view, and delete comments on tasks
-- ✅ **TypeScript Interfaces** - Complete type safety with Task and TaskComment interfaces
+### Core Features
+- **Multi-tenant Architecture**: Organization-based data isolation
+- **Project Management**: Create, update, and manage projects with status tracking
+- **Task Management**: Full CRUD operations with status workflow (TODO → IN_PROGRESS → DONE)
+- **Task Comments**: Collaborative commenting system on tasks
+- **Project Statistics**: Real-time task counts and completion rates
+- **Responsive Design**: Beautiful UI that works on all devices
 
-### Should Have (20%)
-- ✅ **Form Validation** - Comprehensive client-side validation with error messages
-- ✅ **Error Handling** - Graceful error handling with user-friendly messages
-- ✅ **Responsive UI Design** - Mobile-first design that works on all devices
-- ✅ **Loading States** - Visual feedback during async operations
-
-### Nice to Have (10%)
-- ✅ **Drag-and-Drop** - Beautiful drag-and-drop for task status changes (react-beautiful-dnd)
-- ✅ **Advanced UI Features** - Animations, transitions, and modern UI polish
-- ✅ **Accessibility** - ARIA labels, keyboard navigation, focus management
-- ✅ **Real-time Ready** - Architecture prepared for WebSocket integration
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18+ and npm/yarn/pnpm
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd TM
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   ```
-
-4. **Open your browser**
-   - Navigate to `http://localhost:3000`
-   - The app will automatically open in your default browser
-
-### Build for Production
-
-```bash
-npm run build
-# or
-yarn build
-# or
-pnpm build
-```
-
-The production build will be in the `dist` directory.
-
-### Preview Production Build
-
-```bash
-npm run preview
-# or
-yarn preview
-# or
-pnpm preview
-```
-
-## 📁 Project Structure
-
-```
-TM/
-├── src/
-│   ├── components/          # React components
-│   │   ├── ui/              # Reusable UI components
-│   │   │   ├── Button.tsx
-│   │   │   ├── Input.tsx
-│   │   │   ├── Textarea.tsx
-│   │   │   ├── Modal.tsx
-│   │   │   ├── LoadingSpinner.tsx
-│   │   │   └── ErrorMessage.tsx
-│   │   ├── tasks/           # Task-related components
-│   │   │   ├── TaskCard.tsx
-│   │   │   ├── TaskForm.tsx
-│   │   │   ├── TaskBoard.tsx
-│   │   │   └── TaskList.tsx
-│   │   └── comments/        # Comment-related components
-│   │       ├── CommentList.tsx
-│   │       ├── CommentForm.tsx
-│   │       └── TaskCommentsModal.tsx
-│   ├── hooks/               # Custom React hooks
-│   │   ├── useTasks.ts
-│   │   └── useTaskComments.ts
-│   ├── services/            # Business logic and API services
-│   │   └── taskService.ts
-│   ├── types/               # TypeScript type definitions
-│   │   └── index.ts
-│   ├── utils/               # Utility functions
-│   │   ├── validation.ts
-│   │   ├── date.ts
-│   │   └── constants.ts
-│   ├── styles/              # Global styles
-│   │   └── index.css
-│   ├── App.tsx              # Main application component
-│   └── main.tsx             # Application entry point
-├── public/                  # Static assets
-├── index.html               # HTML template
-├── package.json             # Dependencies and scripts
-├── tsconfig.json            # TypeScript configuration
-├── vite.config.ts           # Vite configuration
-├── tailwind.config.js       # TailwindCSS configuration
-├── postcss.config.js        # PostCSS configuration
-├── .eslintrc.cjs            # ESLint configuration
-├── README.md                # This file
-├── ARCHITECTURE.md          # Architecture documentation
-├── SECURITY.md              # Security guidelines
-└── .gitignore               # Git ignore rules
-```
-
-## 🎨 Key Features Explained
-
-### 1. Task Management
-
-- **Board View**: Kanban-style board with drag-and-drop functionality
-- **List View**: Traditional list view for detailed task browsing
-- **Task Creation**: Comprehensive form with validation
-- **Task Editing**: In-place editing with modal forms
-- **Status Management**: Three statuses (TODO, IN_PROGRESS, DONE)
-
-### 2. Comment System
-
-- **Add Comments**: Rich comment form with validation
-- **View Comments**: Organized comment list with timestamps
-- **Delete Comments**: Users can delete their own comments
-- **Real-time Ready**: Architecture supports WebSocket integration
-
-### 3. User Experience
-
-- **Responsive Design**: Works seamlessly on mobile, tablet, and desktop
-- **Accessibility**: WCAG-compliant with keyboard navigation
-- **Animations**: Smooth transitions and micro-interactions
-- **Loading States**: Visual feedback during operations
-- **Error Handling**: User-friendly error messages
-
-## 🛠️ Technology Stack
-
-- **React 18.2.0** - UI library
-- **TypeScript 5.2.2** - Type safety
-- **Vite 5.0.8** - Build tool and dev server
-- **TailwindCSS 3.3.6** - Utility-first CSS framework
-- **react-beautiful-dnd 13.1.1** - Drag and drop functionality
-- **date-fns 2.30.0** - Date manipulation
-- **lucide-react 0.294.0** - Icon library
-- **clsx 2.0.0** - Conditional class names
-
-## 📝 TypeScript Interfaces
-
-```typescript
-interface Task {
-  id: string;
-  title: string;
-  description: string;
-  status: 'TODO' | 'IN_PROGRESS' | 'DONE';
-  assigneeEmail: string;
-  dueDate?: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
-interface TaskComment {
-  id: string;
-  taskId: string;
-  content: string;
-  authorEmail: string;
-  createdAt: string;
-  updatedAt?: string;
-}
-```
-
-## 🎯 Usage Examples
-
-### Creating a Task
-
-1. Click the "New Task" button in the header
-2. Fill in the form:
-   - Title (required, 3-100 characters)
-   - Description (required, minimum 10 characters)
-   - Assignee Email (required, valid email)
-   - Status (TODO, IN_PROGRESS, or DONE)
-   - Due Date (optional, cannot be in the past)
-3. Click "Create Task"
-
-### Updating Task Status (Drag and Drop)
-
-1. In Board view, drag a task card
-2. Drop it in the desired status column
-3. The task status updates automatically
-
-### Adding Comments
-
-1. Click on any task card
-2. Scroll to the comments section
-3. Enter your email and comment
-4. Click "Post Comment"
-
-## 🧪 Development
-
-### Type Checking
-
-```bash
-npm run type-check
-```
-
-### Linting
-
-```bash
-npm run lint
-```
-
-### Code Quality
-
-The project follows:
-- ESLint for code linting
-- TypeScript strict mode for type safety
-- Consistent code formatting
-- Component composition patterns
-- Custom hooks for state management
-
-## 🔒 Security
-
-See [SECURITY.md](./SECURITY.md) for detailed security guidelines and best practices.
+### Impressive Features
+- **Drag-and-Drop**: Intuitive task board with drag-and-drop functionality
+- **Real-time Updates**: WebSocket subscriptions for live updates
+- **Advanced Filtering**: Filter projects and tasks by status, assignee, date range
+- **Search Functionality**: Full-text search across projects and tasks
+- **Dark Mode**: Toggle between light and dark themes
+- **Smooth Animations**: Polished UI with smooth transitions
+- **Optimistic Updates**: Instant UI feedback with GraphQL optimistic updates
+- **Activity Feed**: Track all project and task activities
+- **Due Date Reminders**: Visual indicators for upcoming deadlines
 
 ## 🏗️ Architecture
 
-See [ARCHITECTURE.md](./ARCHITECTURE.md) for detailed architecture documentation.
+```
+project-management-system/
+├── backend/                 # Django backend
+│   ├── config/             # Django settings
+│   ├── organizations/      # Organization app
+│   ├── projects/           # Project app
+│   ├── tasks/              # Task app
+│   └── api/                # GraphQL API
+├── frontend/               # React frontend
+│   ├── src/
+│   │   ├── components/     # React components
+│   │   ├── pages/          # Page components
+│   │   ├── hooks/          # Custom hooks
+│   │   ├── graphql/        # GraphQL queries/mutations
+│   │   └── utils/          # Utilities
+│   └── public/
+├── docker/                 # Docker configurations
+├── docs/                   # Documentation
+└── tests/                  # Test files
+```
 
-## 📄 License
+## 🛠️ Tech Stack
 
-This project is provided as-is for demonstration purposes.
+### Backend
+- **Django 4.2+**: Web framework
+- **Graphene-Django**: GraphQL implementation
+- **PostgreSQL**: Database
+- **Django Channels**: WebSocket support for real-time features
+- **Django CORS Headers**: CORS handling
+- **Django Filter**: Advanced filtering
+- **Celery**: Background tasks (optional)
 
-## 🤝 Contributing
+### Frontend
+- **React 18+**: UI library
+- **TypeScript**: Type safety
+- **Apollo Client**: GraphQL client
+- **TailwindCSS**: Styling
+- **React DnD**: Drag-and-drop
+- **React Query**: Additional data fetching
+- **Framer Motion**: Animations
 
-1. Follow the existing code style
-2. Write TypeScript with proper types
-3. Add appropriate error handling
-4. Ensure accessibility compliance
-5. Test on multiple devices/browsers
+## 📋 Prerequisites
 
-## 📞 Support
+- Python 3.10+
+- Node.js 18+
+- PostgreSQL 14+
+- Docker & Docker Compose (optional)
 
-For issues, questions, or contributions, please refer to the project documentation or create an issue in the repository.
+## 🚀 Quick Start
 
-## 🎉 Acknowledgments
+> **📖 For detailed step-by-step instructions, see [QUICK_START.md](./QUICK_START.md)**
 
-Built with modern web technologies and best practices, focusing on:
-- Clean architecture
-- Type safety
-- User experience
-- Accessibility
-- Performance
-- Maintainability
+### Option 1: Docker Compose (Recommended) 🐳
+
+```bash
+# Start all services
+docker-compose up -d
+
+# Run migrations
+docker-compose exec backend python manage.py migrate
+
+# Create superuser (optional)
+docker-compose exec backend python manage.py createsuperuser
+
+# Access the application
+# Frontend: http://localhost:3000
+# Backend API: http://localhost:8000
+# GraphQL Playground: http://localhost:8000/graphql
+# Django Admin: http://localhost:8000/admin
+```
+
+### Option 2: Local Development
+
+#### Backend Setup
+
+```bash
+cd backend
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your PostgreSQL credentials
+
+# Run migrations
+python manage.py migrate
+
+# Create superuser
+python manage.py createsuperuser
+
+# Start development server
+python manage.py runserver
+```
+
+#### Frontend Setup
+
+```bash
+cd frontend
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your backend URL
+
+# Start development server
+npm start
+```
+
+## 🔐 Authentication
+
+The system uses JWT-based authentication. To get started:
+
+1. Create a superuser: `python manage.py createsuperuser`
+2. Login through the GraphQL API or use the admin panel
+3. Obtain JWT tokens for API access
+
+## 📚 API Documentation
+
+### GraphQL Endpoint
+- **URL**: `http://localhost:8000/graphql`
+- **Playground**: `http://localhost:8000/graphql` (in development)
+
+### Key Queries
+- `organizations`: List all organizations
+- `projects(organizationSlug: String!)`: Get projects for an organization
+- `project(id: ID!)`: Get a single project
+- `tasks(projectId: ID!)`: Get tasks for a project
+- `projectStats(organizationSlug: String!)`: Get project statistics
+
+### Key Mutations
+- `createOrganization`: Create a new organization
+- `createProject`: Create a new project
+- `updateProject`: Update a project
+- `createTask`: Create a new task
+- `updateTask`: Update a task
+- `addTaskComment`: Add a comment to a task
+- `updateTaskStatus`: Update task status (with drag-and-drop support)
+
+See [API Documentation](./docs/API.md) for complete schema.
+
+## 🧪 Testing
+
+```bash
+# Backend tests
+cd backend
+python manage.py test
+
+# Frontend tests
+cd frontend
+npm test
+
+# Run all tests with coverage
+npm run test:coverage
+```
+
+## 🐳 Docker
+
+```bash
+# Build images
+docker-compose build
+
+# Start services
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop services
+docker-compose down
+```
+
+## 🔒 Security Features
+
+- JWT authentication
+- Organization-based data isolation
+- Input validation and sanitization
+- CORS configuration
+- Rate limiting
+- SQL injection prevention (Django ORM)
+- XSS protection
+- CSRF protection
+- Environment variable management
+
+See [Security Documentation](./docs/SECURITY.md) for details.
+
+## 📖 Documentation
+
+- [API Documentation](./docs/API.md)
+- [Architecture Documentation](./docs/ARCHITECTURE.md)
+- [Security Documentation](./docs/SECURITY.md)
+- [Deployment Guide](./docs/DEPLOYMENT.md)
+- [Contributing Guide](./docs/CONTRIBUTING.md)
+
+## 🎯 Project Structure
+
+See [Architecture Documentation](./docs/ARCHITECTURE.md) for detailed structure and design decisions.
+
+## 🚧 Future Improvements
+
+- [ ] User management and permissions
+- [ ] File attachments for tasks
+- [ ] Email notifications
+- [ ] Calendar view
+- [ ] Gantt charts
+- [ ] Time tracking
+- [ ] Export/import functionality
+- [ ] Mobile app (React Native)
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
+## 👥 Contributing
+
+See [Contributing Guide](./docs/CONTRIBUTING.md) for guidelines.
+
+## 📧 Contact
+
+For questions or support, please open an issue in the repository.
 
 ---
 
-**Made with ❤️ by Sugam Arora**
+**Built with ❤️ by Sugam Arora**
 
