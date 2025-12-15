@@ -80,4 +80,5 @@ jobs:
         env:
           REACT_APP_API_URL: http://localhost:8000
           REACT_APP_GRAPHQL_URL: http://localhost:8000/graphql/
+          CI: false
 
