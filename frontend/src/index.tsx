@@ -12,3 +12,14 @@ root.render(
   </React.StrictMode>
 );
 
+// Register a basic service worker for static asset caching (production only)
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/service-worker.js')
+      .catch(() => {
+        // ignore registration errors in development
+      });
+  });
+}
+

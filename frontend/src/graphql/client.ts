@@ -1,4 +1,8 @@
 import { ApolloClient, InMemoryCache, createHttpLink, from } from '@apollo/client';
+// Persisted cache for faster startup and offline reads
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { persistCache, LocalStorageWrapper } from 'apollo3-cache-persist';
 import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
 import toast from 'react-hot-toast';
@@ -38,33 +42,39 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-export const client = new ApolloClient({
-  link: from([errorLink, authLink, httpLink]),
-  cache: new InMemoryCache({
-    typePolicies: {
-      Query: {
-        fields: {
-          projects: {
-            merge(existing = [], incoming) {
-              return incoming;
-            },
+// Initialize cache with policies
+const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        projects: {
+          merge(existing = [], incoming) {
+            return incoming;
           },
-          tasks: {
-            merge(existing = [], incoming) {
-              return incoming;
-            },
+        },
+        tasks: {
+          merge(existing = [], incoming) {
+            return incoming;
           },
         },
       },
     },
-  }),
+  },
+});
+
+// Persist cache to localStorage (non-blocking)
+if (typeof window !== 'undefined') {
+  persistCache({ cache, storage: new LocalStorageWrapper(window.localStorage) }).catch(() => {
+    // Ignore persistence errors and continue with in-memory cache
+  });
+}
+
+export const client = new ApolloClient({
+  link: from([errorLink, authLink, httpLink]),
+  cache,
   defaultOptions: {
-    watchQuery: {
-      errorPolicy: 'all',
-    },
-    query: {
-      errorPolicy: 'all',
-    },
+    watchQuery: { errorPolicy: 'all', fetchPolicy: 'cache-and-network' },
+    query: { errorPolicy: 'all', fetchPolicy: 'cache-first' },
   },
 });
 

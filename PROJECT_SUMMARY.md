@@ -1,4 +1,4 @@
-# Project Management System - Implementation Summary
+# Projexus - Implementation Summary
 
 ## Completed Features
 

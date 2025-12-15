@@ -1,6 +1,6 @@
-# 🚀 Mini Project Management System
+# 🚀 Projexus — Project Management System
 
-A modern, full-stack project management system built with Django, GraphQL, React, and TypeScript. This application provides multi-tenant project and task management with real-time updates, drag-and-drop functionality, and a beautiful, responsive UI.
+A modern, full-stack project management system built with Django, GraphQL, React, and TypeScript. Projexus provides multi-tenant project and task management with real-time updates, drag-and-drop functionality, and a beautiful, responsive UI.
 
 ## ✨ Features
 
@@ -19,6 +19,10 @@ A modern, full-stack project management system built with Django, GraphQL, React
 - **Search Functionality**: Full-text search across projects and tasks
 - **Dark Mode**: Toggle between light and dark themes
 - **Smooth Animations**: Polished UI with smooth transitions
+- **Route Splitting**: Lazy-loaded routes for faster initial load
+- **Prefetching**: Project detail data prefetch on hover for instant navigation
+- **Caching**: Apollo cache persisted to localStorage for instant reloads
+- **Offline-Ready**: Service Worker caches static assets for offline support
 - **Optimistic Updates**: Instant UI feedback with GraphQL optimistic updates
 - **Activity Feed**: Track all project and task activities
 - **Due Date Reminders**: Visual indicators for upcoming deadlines
@@ -60,7 +64,7 @@ project-management-system/
 ### Frontend
 - **React 18+**: UI library
 - **TypeScript**: Type safety
-- **Apollo Client**: GraphQL client
+- **Apollo Client**: GraphQL client with persisted cache
 - **TailwindCSS**: Styling
 - **React DnD**: Drag-and-drop
 - **React Query**: Additional data fetching
@@ -138,6 +142,13 @@ cp .env.example .env
 
 # Start development server
 npm start
+
+### Performance Enhancements (Frontend)
+
+- Apollo cache persistence is enabled via `apollo3-cache-persist` for faster reloads and offline reads.
+- Service Worker (`public/service-worker.js`) caches static assets in production builds.
+- Routes are lazy-loaded to reduce initial bundle size.
+- Project details are prefetched on card hover to make detail navigation instant.
 ```
 
 ## 🔐 Authentication
@@ -254,5 +265,5 @@ For questions or support, please open an issue in the repository.
 
 ---
 
-**Built with ❤️ by Sugam Arora**
+**Projexus — Built with ❤️ by Sugam Arora**
 

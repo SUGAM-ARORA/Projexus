@@ -5,6 +5,8 @@ import { Project } from '../types';
 import { format } from 'date-fns';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
+import { useApolloClient } from '@apollo/client';
+import { GET_PROJECT } from '../graphql/queries';
 
 interface ProjectCardProps {
   project: Project;
@@ -43,6 +45,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   };
 
   const config = statusConfig[project.status];
+  const apolloClient = useApolloClient();
+
+  const prefetchProject = () => {
+    apolloClient.query({
+      query: GET_PROJECT,
+      variables: { id: project.id },
+      fetchPolicy: 'cache-first',
+    }).catch(() => {});
+  };
 
   return (
     <motion.div
@@ -50,7 +61,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       className="h-full"
     >
-      <Link to={`/projects/${project.id}`} className="block h-full group">
+      <Link to={`/projects/${project.id}`} className="block h-full group" onMouseEnter={prefetchProject}>
         <div className={`relative h-full card-premium overflow-hidden border-2 ${config.borderColor} bg-gradient-to-br ${config.bgColor} backdrop-blur-sm cursor-pointer`}>
           {/* Corner accent */}
           <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-primary-400/20 to-transparent rounded-bl-3xl"></div>

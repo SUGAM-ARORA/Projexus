@@ -33,15 +33,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="flex items-center space-x-3 group cursor-pointer">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-accent-600 rounded-lg blur-lg opacity-75 group-hover:opacity-100 transition-opacity"></div>
-                <div className="relative bg-white dark:bg-gray-900 rounded-lg p-2">
+                <div className="relative bg-white dark:bg-gray-900 rounded-lg p-2" aria-label="Projexus logo">
                   <Zap className="w-6 h-6 text-primary-600 dark:text-primary-400" />
                 </div>
               </div>
               <div>
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 dark:from-primary-400 dark:to-accent-400 bg-clip-text text-transparent">
-                  ProjectHub
+                  Projexus
                 </h1>
-                <p className="text-xs text-gray-600 dark:text-gray-400">Manage with Precision</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">Project management reimagined</p>
               </div>
             </div>
 
@@ -72,7 +72,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <div className="relative z-10 mt-20 border-t border-white/10 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            Built with <span className="text-red-500">❤️</span> for better project management
+            Projexus • Built with <span className="text-red-500">❤️</span> by Sugam Arora
           </p>
         </div>
       </div>
